@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Search Result</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Result</h1>
+	<!--
+	<p th:text="'SQL Statement: ' + ${querycriteria.sqlStatement}" />
+	-->
+	<p th:text="'SQL Statement: ' + ${querycriteria.sqlStatement!=null}?${querycriteria.sqlStatement}" />
+	
+	<p>
+	<li class="list-group-item" th:each="filename:${filelist}">
+		<a th:href="@{'/download?filename='+ ${filename}}"><span th:text="${filename}"></span></a>
+	</li>
+	</p>
+	<a href="/query">Do another query...</a>
+	
+</body>
+</html>

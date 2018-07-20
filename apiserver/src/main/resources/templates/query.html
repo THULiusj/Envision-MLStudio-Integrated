@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Query</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Query</h1>
+<p th:text="'Account: ' + ${account.name}" />
+<input type="button" onclick="location.href='/logout'" value="log out" >
+
+
+    <form action="#" th:action="@{/doquery}" th:object="${querycriteria}" method="post">
+    	<p>SQL Statement: <input type="text" th:field="*{sqlStatement}"  /></p>
+        <p><input type="submit" value="Submit" onClick="this.form.submit(); this.disabled=true; this.value='Downloading…';"/> <input type="reset" value="Reset" /></p>
+    </form>
+  
+    <a href="/result">Check the existing files</a>
+
+</body>
+</html>
